@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -37,6 +38,12 @@ export default function Home() {
             </a>{" "}
             center.
           </p>
+          <Link
+            href="/demo"
+            className="rounded-full border border-black/[.08] bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors hover:bg-[#383838] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+          >
+            View the demo wiring →
+          </Link>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
