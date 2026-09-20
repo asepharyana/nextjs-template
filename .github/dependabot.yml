@@ -5,6 +5,8 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
     groups:
       production:
         dependency-type: "production"
@@ -13,6 +15,37 @@ updates:
           - "patch"
       development:
         dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      # ---- Toolchain pins: semver-major bumps break the lint/typecheck stack ----
+      # ESLint 10 dropped rule-context getFilename(); eslint-plugin-react (^7.37.x)
+      # peer range caps at eslint ^9.7 -> react/display-name crash at load.
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      # typescript-eslint 8.x peer range is ">=4.8.4 <6.1.0" -> TS 7 hard-refuses.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      # @tsparticles v4 changed its exported API; the vendored SparklesCore from the
+      # Aceternity registry targets the v3 API (initParticlesEngine, IEffect.fill...).
+      - dependency-name: "@tsparticles/*"
+        update-types: ["version-update:semver-major"]
+      # eslint-config-next majors follow Next.js majors and can pull incompatible
+      # plugin versions; framework majors are deliberate, not auto-bumps.
+      - dependency-name: "eslint-config-next"
+        update-types: ["version-update:semver-major"]
+      # eslint-plugin-react 8.x targets ESLint 10, which conflicts with the
+      # pinned eslint ^9 (and the vendored components' validated toolchain).
+      - dependency-name: "eslint-plugin-react"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions:
+        patterns: ["*"]
         update-types:
           - "minor"
           - "patch"
