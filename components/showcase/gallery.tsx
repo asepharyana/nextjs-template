@@ -246,7 +246,7 @@ export function ShowcaseGallery() {
               <p className="text-sm font-medium text-white">DirectionAwareHover</p>
             </DirectionAwareHover>
           </Card>
-          <Card label="bento-grid" id="bento">
+          <Card label="bento-grid">
             <BentoGrid className="mx-auto w-full max-w-3xl">
               {BENTO_ITEMS.map((item, i) => (
                 <BentoGridItem
