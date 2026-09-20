@@ -19,7 +19,7 @@ const SECTIONS = [
 
 export default function UiGalleryPage() {
   return (
-    <div className="flex w-full flex-col items-center bg-zinc-50 dark:bg-black">
+    <div className="flex w-full flex-col items-center bg-zinc-50 dark:bg-zinc-950 dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.04),transparent_55%)]">
       <div className="w-full border-b border-zinc-200 bg-white/80 py-10 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/80">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-6">
           <nav className="text-xs font-medium tracking-wide text-zinc-500 dark:text-zinc-400">

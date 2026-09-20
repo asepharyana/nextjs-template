@@ -9,7 +9,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 
 export function HomeHero() {
   return (
-    <div className="relative flex w-full flex-1 flex-col items-center justify-center overflow-hidden bg-zinc-50 antialiased dark:bg-black">
+    <div className="relative flex w-full flex-1 flex-col items-center justify-center overflow-hidden bg-zinc-50 antialiased dark:bg-zinc-950 dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_60%)]">
       <div className="pointer-events-none absolute inset-0 z-0">
         <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="white" />
       </div>

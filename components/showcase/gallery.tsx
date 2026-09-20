@@ -63,6 +63,33 @@ import { MaskContainer } from "@/components/ui/svg-mask-effect";
 import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 import { IconHome, IconUser, IconSettings, IconMoon, IconSun } from "@tabler/icons-react";
 import { useScroll, useTransform, MotionValue } from "motion/react";
+import { useState } from "react";
+
+function MultiStepLoaderDemo() {
+  const [loading, setLoading] = useState(false);
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <MultiStepLoader
+        loading={loading}
+        loadingStates={[
+          { text: "Fetching" },
+          { text: "Compiling" },
+          { text: "Rendering" },
+          { text: "Done" },
+        ]}
+      />
+      <button
+        onClick={() => {
+          setLoading(true);
+          setTimeout(() => setLoading(false), 4000);
+        }}
+        className="rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+      >
+        {loading ? "Loading…" : "Run loader"}
+      </button>
+    </div>
+  );
+}
 
 function Card({
   children,
@@ -614,15 +641,7 @@ export function ShowcaseGallery() {
             </Tooltip>
           </Card>
           <Card label="multi-step-loader">
-            <MultiStepLoader
-              loading
-              loadingStates={[
-                { text: "Fetching" },
-                { text: "Compiling" },
-                { text: "Rendering" },
-                { text: "Done" },
-              ]}
-            />
+            <MultiStepLoaderDemo />
           </Card>
           <Card label="svg-mask-effect">
             <MaskContainer
