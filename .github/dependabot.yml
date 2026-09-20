@@ -29,7 +29,13 @@ updates:
         update-types: ["version-update:semver-major"]
       # @tsparticles v4 changed its exported API; the vendored SparklesCore from the
       # Aceternity registry targets the v3 API (initParticlesEngine, IEffect.fill...).
-      - dependency-name: "@tsparticles/*"
+      # NOTE: dependabot `ignore` does NOT support wildcards (only `groups` does) —
+      # list each exact scoped package.
+      - dependency-name: "@tsparticles/react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@tsparticles/engine"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@tsparticles/slim"
         update-types: ["version-update:semver-major"]
       # eslint-config-next majors follow Next.js majors and can pull incompatible
       # plugin versions; framework majors are deliberate, not auto-bumps.
