@@ -11,7 +11,7 @@
         "@tabler/icons-react": "^3.47.0",
         "@tanstack/react-query": "^5.103.1",
         "@tanstack/react-table": "^9.2.4",
-        "@tsparticles/engine": "^3",
+        "@tsparticles/engine": "^4",
         "@tsparticles/react": "^3",
         "@tsparticles/slim": "^4",
         "better-auth": "^1.7.5",
@@ -509,7 +509,7 @@
 
     "@tsparticles/canvas-utils": ["@tsparticles/canvas-utils@4.4.0", "", { "peerDependencies": { "@tsparticles/engine": "4.4.0" } }, "sha512-3zVr95OZ05BExgVYNT8WPqA/wFp83TiEJo66rZCZ/nZd1Ny8UCYLMKBcbUPBvGS2GB87UMK8+ygleZnlFhGTtw=="],
 
-    "@tsparticles/engine": ["@tsparticles/engine@3.9.1", "", {}, "sha512-DpdgAhWMZ3Eh2gyxik8FXS6BKZ8vyea+Eu5BC4epsahqTGY9V3JGGJcXC6lRJx6cPMAx1A0FaQAojPF3v6rkmQ=="],
+    "@tsparticles/engine": ["@tsparticles/engine@4.4.0", "", {}, "sha512-zUDykZ7qBqHYMXr6NveXg51kBlvfaQKMmWkMJ8nT7fC4dXdNayb1+TxOfAoqH9/U/u0Eyr0YE+72ai/ymS0uww=="],
 
     "@tsparticles/interaction-external-attract": ["@tsparticles/interaction-external-attract@4.4.0", "", { "peerDependencies": { "@tsparticles/engine": "4.4.0", "@tsparticles/plugin-interactivity": "4.4.0" } }, "sha512-Y7m4M//SC8J/u0mOcNPpA+qDmImeV5O4axqxah3RdbB0NR5IYmyq6y3ipQGCsDiKPjyyin6R2INT+EY/y75r1A=="],
 
@@ -2076,10 +2076,6 @@
     "@testing-library/jest-dom/aria-query": ["aria-query@5.3.2", "", {}, "sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw=="],
 
     "@testing-library/jest-dom/dom-accessibility-api": ["dom-accessibility-api@0.6.3", "", {}, "sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w=="],
-
-    "@tsparticles/basic/@tsparticles/engine": ["@tsparticles/engine@4.4.0", "", {}, "sha512-zUDykZ7qBqHYMXr6NveXg51kBlvfaQKMmWkMJ8nT7fC4dXdNayb1+TxOfAoqH9/U/u0Eyr0YE+72ai/ymS0uww=="],
-
-    "@tsparticles/slim/@tsparticles/engine": ["@tsparticles/engine@4.4.0", "", {}, "sha512-zUDykZ7qBqHYMXr6NveXg51kBlvfaQKMmWkMJ8nT7fC4dXdNayb1+TxOfAoqH9/U/u0Eyr0YE+72ai/ymS0uww=="],
 
     "@typescript-eslint/eslint-plugin/ignore": ["ignore@7.0.9", "", {}, "sha512-brTTsvFRt5C1gGHtPst/281UjPD5t9fBqbgoMPlVWy11ZLTPfu7HxK4ZYqO9H7o/yC9rSTCI85EaQ4OoY12qYw=="],
 
