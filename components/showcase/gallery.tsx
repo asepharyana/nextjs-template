@@ -22,6 +22,47 @@ import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import { Tabs } from "@/components/ui/animated-tabs";
+import { WavyBackground } from "@/components/ui/wavy-background";
+import { Boxes } from "@/components/ui/background-boxes";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Cover } from "@/components/ui/cover";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { SquigglyText } from "@/components/ui/squiggly-text";
+import {
+  TextRevealCard,
+  TextRevealCardTitle,
+  TextRevealCardDescription,
+} from "@/components/ui/text-reveal-card";
+import { Meteors } from "@/components/ui/meteors";
+import { GlareCard } from "@/components/ui/glare-card";
+import { MagneticButton } from "@/components/ui/magnetic-button";
+import { GooeyInput } from "@/components/ui/gooey-input";
+import { Notch } from "@/components/ui/notch";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { HeroParallax } from "@/components/ui/hero-parallax";
+import { ParallaxScroll } from "@/components/ui/parallax-scroll";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import { Timeline } from "@/components/ui/timeline";
+import { FocusCards } from "@/components/ui/focus-cards";
+import { Tooltip } from "@/components/ui/tooltip-card";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
+import { MultiStepLoader } from "@/components/ui/multi-step-loader";
+import {
+  ModalProvider,
+  Modal,
+  ModalTrigger,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+} from "@/components/ui/animated-modal";
+import { MaskContainer } from "@/components/ui/svg-mask-effect";
+import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
+import { IconHome, IconUser, IconSettings, IconMoon, IconSun } from "@tabler/icons-react";
+import { useScroll, useTransform, MotionValue } from "motion/react";
 
 function Card({
   children,
@@ -343,6 +384,331 @@ export function ShowcaseGallery() {
           />
         </Card>
       </section>
+
+      <section className="flex w-full flex-col items-center gap-6">
+        <SectionLabel id="beams2" index="05" title="Waves, boxes & spotlights" />
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+          <Card label="wavy-background" className="md:col-span-2">
+            <WavyBackground className="w-full rounded-xl py-16">
+              <p className="relative z-10 text-2xl font-bold text-white">WavyBackground</p>
+              <p className="relative z-10 text-sm text-zinc-300">
+                Animated SVG waves behind content.
+              </p>
+            </WavyBackground>
+          </Card>
+          <Card label="background-boxes">
+            <div className="relative flex h-full min-h-[240px] w-full items-center justify-center overflow-hidden rounded-xl bg-zinc-950">
+              <Boxes className="absolute inset-0" />
+              <p className="relative z-10 text-sm font-medium text-zinc-300">
+                Boxes — grid dots pattern
+              </p>
+            </div>
+          </Card>
+          <Card label="spotlight">
+            <div className="relative flex h-full min-h-[240px] w-full items-center justify-center overflow-hidden rounded-xl bg-zinc-950">
+              <Spotlight className="-top-20 left-0" fill="white" />
+              <p className="relative z-10 text-sm font-medium text-zinc-200">Spotlight</p>
+            </div>
+          </Card>
+          <Card label="background-gradient" className="md:col-span-2">
+            <BackgroundGradient className="rounded-xl p-6">
+              <p className="text-sm font-medium text-zinc-800 dark:text-zinc-100">
+                BackgroundGradient — animated border glow
+              </p>
+            </BackgroundGradient>
+          </Card>
+        </div>
+      </section>
+
+      <section className="flex w-full flex-col items-center gap-6">
+        <SectionLabel id="text2" index="06" title="More text effects" />
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
+          <Card label="cover">
+            <p className="text-center text-2xl font-bold text-zinc-900 dark:text-white">
+              Outline <Cover>Cover</Cover> underline
+            </p>
+          </Card>
+          <Card label="text-generate-effect">
+            <TextGenerateEffect words="Text that generates itself, character by character." />
+          </Card>
+          <Card label="text-hover-effect">
+            <TextHoverEffect text="HOVER" />
+          </Card>
+          <Card label="squiggly-text">
+            <SquigglyText className="text-2xl font-bold text-zinc-900 dark:text-white">
+              SquigglyText wobble
+            </SquigglyText>
+          </Card>
+          <Card label="text-reveal-card" className="md:col-span-2">
+            <TextRevealCard text="Hover to reveal" revealText="A secret message 👀">
+              <TextRevealCardTitle>TextRevealCard</TextRevealCardTitle>
+              <TextRevealCardDescription>
+                The card&apos;s cyan gradient sweeps in on hover.
+              </TextRevealCardDescription>
+            </TextRevealCard>
+          </Card>
+        </div>
+      </section>
+
+      <section className="flex w-full flex-col items-center gap-6">
+        <SectionLabel id="cards2" index="07" title="Cards, meteors & buttons" />
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+          <Card label="meteors">
+            <div className="relative flex h-full min-h-[240px] w-full items-center justify-center overflow-hidden rounded-xl bg-zinc-950">
+              <Meteors number={20} className="absolute inset-0" />
+              <p className="relative z-10 text-sm font-medium text-zinc-300">Meteors</p>
+            </div>
+          </Card>
+          <Card label="glare-card">
+            <GlareCard className="flex h-full min-h-[240px] items-center justify-center rounded-xl">
+              <p className="text-sm font-medium text-white">GlareCard</p>
+            </GlareCard>
+          </Card>
+          <Card label="magnetic-button">
+            <MagneticButton>
+              <span className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-white dark:bg-white dark:text-zinc-900">
+                MagneticButton
+              </span>
+            </MagneticButton>
+          </Card>
+        </div>
+      </section>
+
+      <section className="flex w-full flex-col items-center gap-6">
+        <SectionLabel id="interaction" index="08" title="Inputs, docks & modals" />
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
+          <Card label="gooey-input">
+            <GooeyInput placeholder="Type to search…" />
+          </Card>
+          <Card label="notch">
+            <Notch
+              items={[
+                {
+                  id: "theme",
+                  label: "Theme",
+                  options: [
+                    { id: "light", label: "Light", icon: <IconSun className="h-4 w-4" /> },
+                    { id: "dark", label: "Dark", icon: <IconMoon className="h-4 w-4" /> },
+                  ],
+                },
+              ]}
+            />
+          </Card>
+          <Card label="floating-dock" className="md:col-span-2">
+            <FloatingDock
+              items={[
+                { title: "Home", icon: <IconHome className="h-5 w-5" />, href: "#" },
+                { title: "Profile", icon: <IconUser className="h-5 w-5" />, href: "#" },
+                { title: "Settings", icon: <IconSettings className="h-5 w-5" />, href: "#" },
+              ]}
+            />
+          </Card>
+          <Card label="animated-modal" className="md:col-span-2">
+            <ModalProvider>
+              <Modal>
+                <ModalTrigger>
+                  <span className="cursor-pointer rounded-full bg-zinc-900 px-5 py-2 text-sm font-medium text-white dark:bg-white dark:text-zinc-900">
+                    Open animated modal
+                  </span>
+                </ModalTrigger>
+                <ModalBody>
+                  <ModalContent>
+                    <p className="text-center text-2xl text-zinc-900 dark:text-white">
+                      Animated Modal
+                    </p>
+                    <p className="mt-2 text-center text-sm text-zinc-500 dark:text-zinc-400">
+                      The modal scales and fades, with a fancy backdrop.
+                    </p>
+                  </ModalContent>
+                  <ModalFooter>
+                    <button className="rounded-full bg-zinc-900 px-5 py-2 text-sm text-white dark:bg-white dark:text-zinc-900">
+                      Close
+                    </button>
+                  </ModalFooter>
+                </ModalBody>
+              </Modal>
+            </ModalProvider>
+          </Card>
+        </div>
+      </section>
+
+      <section className="flex w-full flex-col items-center gap-6">
+        <SectionLabel id="scroll" index="09" title="Scroll & parallax" />
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-6">
+          <Card label="sticky-scroll-reveal">
+            <StickyScroll
+              content={[
+                {
+                  title: "StickyScroll",
+                  description: "Content sticks while you scroll; titles swap.",
+                },
+                {
+                  title: "Second block",
+                  description: "The next item rises as the previous fades.",
+                },
+                {
+                  title: "Third block",
+                  description: "Great for feature lists or onboarding.",
+                },
+              ]}
+            />
+          </Card>
+          <Card label="container-scroll-animation">
+            <ContainerScroll
+              titleComponent={
+                <p className="text-2xl font-bold text-zinc-900 dark:text-white">ContainerScroll</p>
+              }
+            >
+              <div className="flex h-full w-full items-center justify-center rounded-xl bg-zinc-100 p-8 dark:bg-zinc-800">
+                <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                  The card scales up as you scroll past.
+                </p>
+              </div>
+            </ContainerScroll>
+          </Card>
+          <Card label="timeline">
+            <Timeline
+              data={[
+                {
+                  title: "2026 · Phase 1",
+                  content: <>Vendor registry components into the template.</>,
+                },
+                { title: "2026 · Phase 2", content: <>Showcase gallery + home hero upgrade.</> },
+                {
+                  title: "2026 · Phase 3",
+                  content: <>Zero-warning toolchain, green CI, auto-deploy.</>,
+                },
+              ]}
+            />
+          </Card>
+        </div>
+      </section>
+
+      <section className="flex w-full flex-col items-center gap-6">
+        <SectionLabel id="hover-scroll" index="10" title="Hover cards, parallax & masking" />
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-6">
+          <Card label="card-hover-effect">
+            <HoverEffect
+              className="w-full"
+              items={[
+                { title: "HoverEffect", description: "Cards lift & glow on hover.", link: "#" },
+                { title: "Second card", description: "The grid is responsive.", link: "#" },
+                { title: "Third card", description: "Click to follow the link.", link: "#" },
+              ]}
+            />
+          </Card>
+          <Card label="focus-cards">
+            <FocusCards
+              cards={[
+                { title: "FocusCards", src: "/vercel.svg" },
+                { title: "Second", src: "/next.svg" },
+                { title: "Third", src: "/vercel.svg" },
+              ]}
+            />
+          </Card>
+          <Card label="tooltip-card">
+            <Tooltip content={<p className="text-xs text-zinc-300">Tooltip on hover</p>}>
+              <span className="cursor-pointer text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                Hover this for a tooltip
+              </span>
+            </Tooltip>
+          </Card>
+          <Card label="multi-step-loader">
+            <MultiStepLoader
+              loading
+              loadingStates={[
+                { text: "Fetching" },
+                { text: "Compiling" },
+                { text: "Rendering" },
+                { text: "Done" },
+              ]}
+            />
+          </Card>
+          <Card label="svg-mask-effect">
+            <MaskContainer
+              revealText={<p className="text-4xl font-bold text-zinc-300">Revealed!</p>}
+              className="h-[16rem]"
+            >
+              <p className="text-4xl font-bold text-zinc-900 dark:text-white">
+                Hover over this masked block
+              </p>
+            </MaskContainer>
+          </Card>
+          <Card label="hero-parallax">
+            <HeroParallax
+              products={[
+                { title: "Next", link: "#", thumbnail: "/next.svg" },
+                { title: "Vercel", link: "#", thumbnail: "/vercel.svg" },
+                { title: "Globe", link: "#", thumbnail: "/globe.svg" },
+                { title: "Window", link: "#", thumbnail: "/window.svg" },
+                { title: "File", link: "#", thumbnail: "/file.svg" },
+              ]}
+            />
+          </Card>
+          <Card label="parallax-scroll">
+            <ParallaxScroll
+              images={[
+                "/next.svg",
+                "/vercel.svg",
+                "/globe.svg",
+                "/window.svg",
+                "/file.svg",
+                "/next.svg",
+              ]}
+              className="w-full"
+            />
+          </Card>
+        </div>
+      </section>
+
+      <section className="flex w-full flex-col items-center gap-6">
+        <SectionLabel id="advanced" index="11" title="Tabs & gemini" />
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-6">
+          <Card label="animated-tabs">
+            <Tabs
+              tabs={[
+                {
+                  title: "Overview",
+                  value: "overview",
+                  content: <p className="p-4 text-sm">Overview tab</p>,
+                },
+                {
+                  title: "Details",
+                  value: "details",
+                  content: <p className="p-4 text-sm">Details tab</p>,
+                },
+                {
+                  title: "Settings",
+                  value: "settings",
+                  content: <p className="p-4 text-sm">Settings tab</p>,
+                },
+              ]}
+            />
+          </Card>
+          <GeminiDemo />
+        </div>
+      </section>
     </div>
+  );
+}
+
+function GeminiDemo() {
+  const { scrollYProgress } = useScroll();
+  const pathLengths: MotionValue<number>[] = [
+    useTransform(scrollYProgress, [0, 0.2], [0, 1]),
+    useTransform(scrollYProgress, [0.2, 0.4], [0, 1]),
+    useTransform(scrollYProgress, [0.4, 0.6], [0, 1]),
+    useTransform(scrollYProgress, [0.6, 0.8], [0, 1]),
+    useTransform(scrollYProgress, [0.8, 1], [0, 1]),
+  ];
+  return (
+    <Card label="google-gemini-effect" className="overflow-visible">
+      <GoogleGeminiEffect
+        pathLengths={pathLengths}
+        title="Google Gemini Effect"
+        description="Scroll — the SVG paths draw as you scroll."
+        className="w-full"
+      />
+    </Card>
   );
 }
