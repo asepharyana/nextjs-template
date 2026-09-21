@@ -115,3 +115,7 @@ NODE_ENV=production and the env vars above at runtime.
 ## License
 
 Private template.
+
+# Test DC format
+
+Verifying Discord notification formatting.
