@@ -1,16 +1,53 @@
 name: Dependabot Auto-Merge
+
 on: pull_request
 
 permissions:
   contents: write
   pull-requests: write
+  checks: read
 
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
+      - name: Verify CI check-runs before enabling auto-merge
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const sha = context.payload.pull_request.head.sha;
+
+            // Wait for in-progress runs (with timeout), then collect conclusions
+            const requiredContext = "lint + typecheck + test + build";
+            let conclusion = null;
+            for (let attempt = 0; attempt < 60; attempt++) {
+              const { data: checks } = await github.rest.checks.listForRef({
+                owner, repo, ref: sha,
+              });
+              const match = checks.check_runs.find(
+                (r) => r.name === requiredContext || r.output?.title === requiredContext
+              );
+              if (match && match.status === "completed") {
+                conclusion = match.conclusion;
+                break;
+              }
+              await new Promise((r) => setTimeout(r, 10000));
+            }
+            if (!conclusion) {
+              core.setFailed(`Required check "${requiredContext}" never completed within timeout.`);
+              return;
+            }
+            if (conclusion !== "success") {
+              core.setFailed(`Required check "${requiredContext}" concluded ${conclusion}. NOT merging.`);
+              return;
+            }
+            core.info(`Check "${requiredContext}" passed — safe to enable auto-merge.`);
+
       - name: Enable auto-merge for Dependabot PR
+        if: success()
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
