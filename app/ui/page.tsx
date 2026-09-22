@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { ShowcaseGallery } from "@/components/showcase/gallery";
 
 export const metadata: Metadata = {
-  title: "UI Gallery — Aceternity",
+  title: "UI Gallery — Aceternity + shadcn",
   description:
-    "Fifty-two Aceternity UI components vendored into the template — animated cards, beams, backgrounds, pins, marquees and more, wired for the App Router.",
+    "Forty-eight Aceternity UI effects vendored into the template — animated cards, beams, backgrounds, pins, marquees and more, wired for the App Router, alongside the full shadcn Base-Nova set.",
 };
 
 const SECTIONS = [
@@ -36,7 +36,7 @@ export default function UiGalleryPage() {
             Aceternity UI gallery
           </h1>
           <p className="max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-            50 components vendored straight from the{" "}
+            48 Aceternity effects vendored straight from the{" "}
             <a
               href="https://ui.aceternity.com/components"
               className="font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-500 dark:text-zinc-200 dark:decoration-zinc-600"

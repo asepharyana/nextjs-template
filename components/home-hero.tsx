@@ -34,7 +34,7 @@ export function HomeHero() {
         className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-8 px-6 py-24 text-center"
       >
         <span className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium tracking-wide text-zinc-500 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-zinc-400">
-          Next.js 16 · Tailwind v4 · motion · 50+ Aceternity components
+          Next.js 16 · Tailwind v4 · motion · 48 Aceternity effects + shadcn
         </span>
 
         <h1 className="max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-zinc-900 sm:text-6xl dark:text-white">
