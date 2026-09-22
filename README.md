@@ -16,6 +16,24 @@ lint/typecheck/test/build pipeline.
 - **Markdown:** react-markdown + remark-gfm + shiki (server-side highlighting)
 - **Misc:** zustand, nuqs, sonner, cmdk, vaul, embla-carousel-react, date-fns,
   next-themes, recharts
+- **Motion effects:** 48 Aceternity UI effects vendored as source in
+  `components/ui/` (motion + @tabler/icons-react + @tsparticles + simplex-noise),
+  showcased live at `/ui`
+
+## UI gallery (`/ui`)
+
+48 Aceternity effects (3d-pin, bento-grid, sparkles, tracing-beam, …) vendored
+verbatim from the [Aceternity registry](https://ui.aceternity.com/components)
+and demoed live in `components/showcase/gallery.tsx`. The shadcn Base-Nova set
+(accordions, dialogs, tables, …) ships alongside in the same `components/ui/`
+dir — 110 files total.
+
+| Rule          | Detail                                                                  |
+| ------------- | ----------------------------------------------------------------------- |
+| Source        | Registry JSON, verbatim + `motion/react` / `cn` import fixes            |
+| Rename        | Aceternity tabs → `animated-tabs.tsx` (collides with shadcn `tabs.tsx`) |
+| Skipped       | three.js trio, apple-cards-carousel (heavy deps, out of scope)          |
+| Overlay demos | `MultiStepLoader` demo is state-gated — never hardcode `loading`        |
 
 ## Getting started
 
@@ -51,7 +69,8 @@ Git hooks (husky + lint-staged) run ESLint + Prettier on staged files.
 
 ```
 app/
-  page.tsx            # landing page
+  page.tsx            # landing page (HomeHero: Cover + Sparkles + Spotlight)
+  ui/                 # /ui gallery — 48 Aceternity effects, live demos
   demo/               # wiring example: markdown+shiki, form, table, session
   protected/          # route guarded by middleware (better-auth session)
   error.tsx / loading.tsx / not-found.tsx
